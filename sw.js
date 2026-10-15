@@ -1,5 +1,5 @@
 // Service worker: offline app shell, cached Wikipedia images, and push notifications.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const SHELL = `curio-shell-${VERSION}`;
 const RUNTIME = 'curio-runtime';
 const META = 'curio-meta';
@@ -7,6 +7,9 @@ const META = 'curio-meta';
 const SHELL_FILES = [
   './', './index.html', './css/styles.css', './manifest.webmanifest',
   './js/app.js', './js/engine.js', './js/content.js', './js/wiki.js', './js/config.js',
+  './js/content/make.js', './js/content/animals-1.js', './js/content/animals-2.js',
+  './js/content/plants.js', './js/content/ecosystems.js', './js/content/deep-time.js',
+  './js/content/prehistory.js', './js/content/antiquity.js', './js/content/middle-ages.js',
   './icons/icon-192.png', './icons/icon-512.png', './icons/badge-96.png',
 ];
 

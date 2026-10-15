@@ -2,7 +2,7 @@
 
 A small installable web app (PWA) that gives you a daily fact or quiz about **nature** (animals, plants, ecosystems) or **history** (from deep time and the dinosaurs to the end of the Middle Ages), with a push notification each morning.
 
-- 171 hand-written facts and quizzes, each rated difficulty 1–5
+- Over 1,000 hand-written facts and quizzes, each rated difficulty 1–5
 - Some history days use Wikipedia's *On this day* events from before 1500, either as a fact or as a "guess the year" quiz
 - Images and "read more" links from Wikipedia
 - A difficulty curve: one level up every 14 days you play, adjusted by your recent quiz accuracy (or set it manually)
@@ -53,7 +53,7 @@ Notes:
 
 | File | Role |
 |---|---|
-| `js/content.js` | The curated facts and quizzes |
+| `js/content.js`, `js/content/` | The curated facts and quizzes (the original set, plus one file per category) |
 | `js/engine.js` | Daily picking (seeded per date), difficulty curve and streaks; pure logic, tested in Node |
 | `js/wiki.js` | Wikipedia summaries (image and link) and *On this day* events |
 | `js/app.js` | UI: Today / Archive / Stats views, and notification setup |
@@ -64,14 +64,14 @@ Each time you open the app, it already picks **tomorrow's** curio and stores a t
 
 ## Adding content
 
-Append objects to `ITEMS` in `js/content.js`:
+Add items to the file for their category in `js/content/` (for example `middle-ages.js`):
 
 ```js
-{ id: 'n100', topic: 'nature', cat: 'Animals', level: 3, type: 'fact', wiki: 'Pangolin',
-  title: 'Scaly anteaters', text: '…' },
-{ id: 'h400', topic: 'history', cat: 'Middle Ages', level: 2, type: 'quiz', wiki: 'Sutton_Hoo',
-  question: '…?', options: ['A', 'B', 'C', 'D'], answer: 1, explain: '…' },
+fact('ma116', 3, 'Sutton_Hoo', 'A ship in a mound', '…'),
+quiz('ma117', 2, 'Sutton_Hoo', '…?', ['Correct answer', 'Wrong', 'Wrong', 'Wrong'], 0, '…'),
 ```
+
+The arguments are `id, level, wiki, title, text` for a fact and `id, level, wiki, question, options, answer, explanation` for a quiz. You can write the correct answer first: options are shuffled with a seed from the id, so the order is stable across devices. Ids are stored in your history, so never reuse or rename one, and don't edit the options of a published quiz. `wiki` is the English Wikipedia page title, used for the picture and the "read more" link.
 
 Categories: `Animals`, `Plants & fungi`, `Ecosystems`, `Deep time`, `Prehistory`, `Antiquity`, `Middle Ages`. Run `npm test` afterwards. When you change files the app caches, bump `VERSION` in `sw.js` so phones pick up the new version.
 

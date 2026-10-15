@@ -6,7 +6,16 @@
 // type:  'fact' { title, text } | 'quiz' { question, options, answer (index), explain }
 // wiki:  English Wikipedia page title, used for the image and "read more" link.
 
-export const ITEMS = [
+import animals1 from './content/animals-1.js';
+import animals2 from './content/animals-2.js';
+import plants from './content/plants.js';
+import ecosystems from './content/ecosystems.js';
+import deepTime from './content/deep-time.js';
+import prehistory from './content/prehistory.js';
+import antiquity from './content/antiquity.js';
+import middleAges from './content/middle-ages.js';
+
+const CORE = [
   // ───────────────────────── NATURE ─────────────────────────
   { id: 'n001', topic: 'nature', cat: 'Animals', level: 1, type: 'fact', wiki: 'Octopus',
     title: 'Three hearts, blue blood',
@@ -628,4 +637,9 @@ export const ITEMS = [
   { id: 'h362', topic: 'history', cat: 'Middle Ages', level: 5, type: 'fact', wiki: 'Battle_of_Ain_Jalut',
     title: 'The battle that stopped the Mongols',
     text: 'In 1260 at Ain Jalut, in present-day Israel, the Mamluk Sultanate of Egypt defeated a Mongol army in open battle, one of the first times the Mongols\' westward advance was decisively stopped. Several Mamluk commanders had once been enslaved after Mongol raids.' },
+];
+
+export const ITEMS = [
+  ...CORE, ...animals1, ...animals2, ...plants, ...ecosystems,
+  ...deepTime, ...prehistory, ...antiquity, ...middleAges,
 ];
