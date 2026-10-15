@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Daily Curio</title>
+  <meta name="description" content="A daily fact or quiz about nature and history, from the dinosaurs to the Middle Ages.">
+  <meta name="theme-color" content="#1f3a2c">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand"><img src="icons/icon.svg" alt="" width="28" height="28"> Daily Curio</h1>
+    <span class="streak" id="streak" title="Current streak"></span>
+  </header>
+
+  <main id="view" aria-live="polite"></main>
+
+  <nav class="tabs" aria-label="Main">
+    <a href="#/today" data-tab="today"><span aria-hidden="true">☀️</span>Today</a>
+    <a href="#/archive" data-tab="archive"><span aria-hidden="true">📚</span>Archive</a>
+    <a href="#/stats" data-tab="stats"><span aria-hidden="true">📈</span>Stats</a>
+  </nav>
+</body>
+</html>

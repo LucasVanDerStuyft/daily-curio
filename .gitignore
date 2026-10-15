@@ -1,0 +1,3 @@
+node_modules/
+push/vapid-keys.json
+push/subscription.json

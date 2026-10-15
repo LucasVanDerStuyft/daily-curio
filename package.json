@@ -1,0 +1,13 @@
+{
+  "name": "daily-curio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "npx --yes http-server -c-1 -p 8765 .",
+    "test": "node test/engine.test.mjs",
+    "push": "node push/send.mjs"
+  },
+  "dependencies": {
+    "web-push": "^3.6.7"
+  }
+}
